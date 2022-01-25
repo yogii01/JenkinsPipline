@@ -1,21 +1,10 @@
 pipeline {
-    agent any
-
+    agent { docker { image 'python:3.9.7-alpine' } }
     stages {
         stage('build') {
             steps {
-                sh """
-                docker build -t hello_World .
-                """
-            }
-        }
-        stage('run') {
-            steps {
-                sh """
-                docker run --rm hello_World
-                """
+                sh 'python --version'
             }
         }
     }
 }
-
