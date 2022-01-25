@@ -1,22 +1,21 @@
-pipeline { 
-    agent any 
-    
+pipeline {
+    agent any
+
     stages {
-        stage('Build') { 
-            steps { 
-                sh 'make' 
+        stage('build') {
+            steps {
+                sh """
+                docker build -t hello_World .
+                """
             }
         }
-        stage('Test'){
+        stage("run") {
             steps {
-                sh 'make check'
-                junit 'reports/**/*.xml' 
-            }
-        }
-        stage('Deploy') {
-            steps {
-                sh 'make publish'
+                sh """
+                docker run --rm hello_there
+                """
             }
         }
     }
 }
+
