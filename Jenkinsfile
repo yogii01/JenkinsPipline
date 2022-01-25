@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python -m main.py'
+                sh 'python -m D:\Project'
             }
         }
     }
