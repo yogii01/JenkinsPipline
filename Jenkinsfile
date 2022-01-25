@@ -1,20 +1,21 @@
-pipeline {
-    agent any
-
+pipeline { 
+    agent any 
+    
     stages {
-        stage('Build') {
-            steps {
-                sh 'python --version'
+        stage('Build') { 
+            steps { 
+                sh 'make' 
             }
         }
-        stage('Test') {
+        stage('Test'){
             steps {
-                sh 'Testing..'
+                sh 'make check'
+                junit 'reports/**/*.xml' 
             }
         }
         stage('Deploy') {
             steps {
-                sh 'Deploying....'
+                sh 'make publish'
             }
         }
     }
