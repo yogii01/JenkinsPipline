@@ -4,17 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat 'main.py'
+                sh 'python --version'
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                sh 'Testing..'
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                sh 'Deploying....'
             }
         }
     }
