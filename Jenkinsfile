@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                python 'D:\Project\main.py'
+                python 'main.py'
             }
         }
         stage('Build') {
