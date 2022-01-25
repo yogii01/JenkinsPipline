@@ -8,13 +8,8 @@ pipeline {
     }
     stage('test') {
       steps {
-        sh 'python Hello_World.py'
-      }
-      post {
-        always {
-          junit 'test-reports/*.xml'
-        }
-      }    
+        sh 'python test.py'
+      }   
     }
   }
 }
