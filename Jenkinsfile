@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python -m D:\Project'
+                sh 'python -m py_compile sources/main.py'
             }
         }
     }
