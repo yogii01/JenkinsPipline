@@ -1,5 +1,5 @@
 pipeline {
-    agent { label "linux" }
+    agent any
 
     stages {
         stage('build') {
@@ -9,7 +9,7 @@ pipeline {
                 """
             }
         }
-        stage("run") {
+        stage('run') {
             steps {
                 sh """
                 docker run --rm hello_World
