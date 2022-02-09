@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'Slave'}
+    agent {label 'Slave1'}
     
     stages {
         stage('Test') {
@@ -13,7 +13,7 @@ pipeline {
             }
         }   
         stage('Test1') {
-        agent {label 'Slave'}
+        agent {label 'Slave1'}
             steps {
                 echo 'Testing'
             }
