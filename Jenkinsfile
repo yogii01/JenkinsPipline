@@ -1,15 +1,27 @@
 pipeline {
-  agent { docker { image 'python:3.9.7' } }
-  stages {
-    stage('build') {
-      steps {
-        sh 'pip install -r requirements.txt'
-      }
-    }
-    stage('test') {
-      steps {
-        sh 'python test.py'
-      }   
-    }
-  }
+    agent {label 'Slave'}
+    
+    stages {
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Release') {
+            steps {
+                echo 'Releasing'
+            }
+        }   
+        stage('Test1') {
+        agent {label 'Slave'}
+            steps {
+                echo 'Testing'
+            }
+        }
+        stage('Release1') {
+            steps {
+                echo 'Releasing'
+            }
+        }
+    }    
 }
